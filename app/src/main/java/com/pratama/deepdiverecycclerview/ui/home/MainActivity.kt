@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.pratama.deepdiverecycclerview.R
 import com.pratama.deepdiverecycclerview.ui.home.adapter.HomeAdapter
 import com.pratama.deepdiverecycclerview.ui.home.adapter.HomeListener
@@ -31,6 +30,12 @@ class MainActivity : AppCompatActivity(), HomeListener {
 
 
         // create adapter
+        rvAdapter = HomeAdapter(listPerson, object : HomeListener {
+            override fun onPersonDetailClick(person: Person) {
+                Toast.makeText(this@MainActivity, "test", Toast.LENGTH_SHORT).show()
+            }
+        })
+
         rvAdapter = HomeAdapter(listPerson, this)
 
         // create layout manager
@@ -56,6 +61,7 @@ class MainActivity : AppCompatActivity(), HomeListener {
     }
 
     override fun onPersonDetailClick(person: Person) {
-        Toast.makeText(this, "${person.name}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "person ${person.name}", Toast.LENGTH_SHORT).show()
     }
+
 }

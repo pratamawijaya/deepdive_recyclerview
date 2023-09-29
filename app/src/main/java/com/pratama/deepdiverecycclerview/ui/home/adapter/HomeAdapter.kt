@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pratama.deepdiverecycclerview.R
+import com.pratama.deepdiverecycclerview.ui.home.MainActivity
 import com.pratama.deepdiverecycclerview.ui.home.model.Person
 
 interface HomeListener {
@@ -15,9 +16,7 @@ interface HomeListener {
 }
 
 
-class HomeAdapter(
-    private val listData: List<Person>, val listener: HomeListener
-) :
+class HomeAdapter(private val listData: List<Person>, val listener: HomeListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -25,6 +24,7 @@ class HomeAdapter(
         private val VIEW_DUA = 2
         private val VIEW_SECTION = 3
     }
+
 
     inner class HomeViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         lateinit var tvTitle: TextView
